@@ -1,0 +1,157 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My little chat app</title>
+  <link rel="stylesheet" href="css/stylechat.css">
+  <script src="js/client.js"></script>
+  <style>
+    .container{
+    max-width: 950px;
+    background-color: lightcoral;
+    margin: auto;
+    height: 60vh;
+    }
+    .message{
+      background-color: grey;
+      width: 25%;
+      padding: 10px;
+      margin: 17px 12px;
+      border: 2px solid black;
+      border-radius: 10px;
+    }
+
+    .left{
+      float: left;
+      clear: both;
+    }
+
+    .right{
+      float: right;
+      clear: both;
+    }
+
+    #send-container{
+      display: block;
+      margin: auto;
+      text-align: center;
+      max-width: 980px;
+      width: 100%;
+    }
+
+    #messageInp{
+      width: 92%;
+      border: 2px solid black;
+      border-radius: 6px;
+      height: 34px;
+    }
+
+    .btn{
+      cursor: pointer;
+      border: 2px solid black;
+      border-radius: 6px;
+      height: 34px;
+    }
+  </style>
+</head>
+<body>
+  <h1>My little chat app</h1>
+  <div class="container">
+    <div class="message left">You</div>
+    <div class="message right">Me</div>
+
+  </div>
+  <div class="send">
+    <form action="#" id="send-container">
+      <input type="text" name="messageInp" id="messageInp">
+      <button class="btn" type="submit" >Send</button>
+    </form>
+  </div>
+</body>
+</html> -->
+
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Chat</title>
+		<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			font: 13px Tahoma;
+			/*
+			direction: rtl;
+			text-align: right;
+			*/
+			direction: ltr;
+			text-align: left;
+		}
+		form {
+			background: #000;
+			padding: 3px;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+		form input {
+			border: 0;
+			padding: 10px;
+			width: 90%;
+			margin-right: .5%;
+		}
+		form button {
+			width: 9%;
+			background: rgb(130, 224, 255);
+			border: none;
+			padding: 10px;
+		}
+		#messages {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			margin-bottom: 40px;
+		}
+		
+		#messages li {
+			padding: 5px 10px;
+		}
+		#messages li:nth-child(odd) {
+			background: #eee;
+		}
+		</style>
+	</head>
+	<body>
+		<ul id="messages"></ul>
+		<form action="">
+			<input id="input" autocomplete="off" />
+			<button>Send</button>
+		</form>
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+		<script>
+		var author;
+		window.addEventListener("load", function() {
+			author = prompt("Enter your names");
+		});
+		$(function () {
+			var socket = io();
+			$('form').submit(function(){
+				socket.emit('chat message', author, $('#input').val());
+				$('#input').val('');
+				return false;
+			});
+			socket.on('chat message', function(author, msg){
+				$('#messages').append($('<li><b>'+author+'</b>: '+msg+'</li>'));
+				window.scrollTo(0, document.body.scrollHeight);
+			});
+		});
+		</script>
+	</body>
+</html>

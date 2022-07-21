@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Organzing Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-image: linear-gradient(#ADEFD1FF, rgb(28, 57, 105) );
+        }
+
+        .card {
+            border: 3px solid rgb(28, 57, 105);
+            margin: 5em;
+            width: 400px;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: rgb(202, 233, 218);
+            color: rgb(28, 57, 105);
+            min-height: 45em;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            color: rgb(28, 57, 105);;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        button {
+            margin: auto;
+            width: 100%;
+            margin-bottom: 2em;
+            height: 3em;
+            font-size: 20px;
+            align-items: center;
+            /* margin-left: 7em; */
+            background-color: rgb(28, 57, 105);;
+            color: #ADEFD1FF;
+            border: 3px solid rgb(28, 57, 105);;
+            font-family: 'Times New Roman', Times, serif;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            color: rgb(28, 57, 105);;
+            background-color: #ADEFD1FF;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-left: 0em;
+            /* margin-right: 0em; */
+        }
+
+        #title {
+            text-decoration: none;
+            color: rgb(28, 57, 105);;
+            margin: 5px;
+        }
+
+        #description {
+            text-align: center;
+            margin: 5px;
+        }
+
+        #date {
+            text-align: justify;
+            margin: 5px;
+        }
+
+        #address {
+            text-align: justify;
+            margin: 5px;
+        }
+
+        .container{
+            margin-left: 7em;
+        }
+
+        .image{
+            max-width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="ccsticky-nav" style="font-size: 18px; font-family: 'Times New Roman', Times, serif;">
+        <ul>
+            <li><a href="ohome.html">Home</a></li>
+            <li><a href="checkEvents.html">Check-Events</a></li>
+            <li><a href="trending.html">Trending</a></li>
+            <li><a href="appliedEvents.html">Applied Events</a></li>
+            <li><a href="ologin.html">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+    <h1>Trending Events</h1>
+
+    <div id="events-section">
+
+    </div>
+</div>
+
+    <script>
+
+        let result;
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = 'https://serpapi.com/search.json?engine=google_events&q=Events+in+Mumbai&hl=en&gl=us&api_key=4c877630ce1fd306bb061697b2df107b019479d69d93e2cdb60efca53cc8b8c5'; // site that doesn’t send Access-Control-*
+        api_arr = fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
+            .then(response => response.json())
+            .then(contents => {
+                console.log(contents)
+                let result = contents[Object.keys(contents)[3]]
+                console.log(result)
+                let eventsSection = document.getElementById('events-section');
+                let eventHTML = '';
+                for (let index = 0; index < 10; index++) {
+                    const element = result[Object.keys(result)[index]];
+                    // console.log(element);
+                    const title = element[Object.keys(element)[0]];
+                    // console.log(title);
+                    const description = element[Object.keys(element)[5]];
+                    // console.log(description);
+                    const dateComplex = element[Object.keys(element)[1]];
+                    // console.log(dateComplex);
+                    const startDate = dateComplex[Object.keys(dateComplex)[0]];
+                    // console.log(startDate);
+                    const address = element[Object.keys(element)[2]];
+                    // console.log(address);
+                    const link = element[Object.keys(element)[3]];
+                    // console.log(link);
+                    const compImage = element[Object.keys(element)[6]];
+                    const image = compImage[Object.keys(compImage)[0]];
+                    const linkBMS = image[Object.keys(image)[1]];
+                    // console.log(linkBMS);
+                    let thumbnail = element[Object.keys(element)[8]];
+                    console.log(thumbnail);
+                    if (thumbnail == undefined) {
+                        thumbnail = element[Object.keys(element)[7]];
+                    }
+
+
+                    eventHTML += `<div class="col-3">
+                    <div class="card" >
+                    <img class="card-img-top image" src="${thumbnail}" alt="Card image cap">
+                    <div class="card-body">
+                    <a href="${linkBMS}" id="title"><h2 class="card-title">${title}</h2></a>
+                    <p class="card-text" id="description">${description}</p>
+                    <p class="card-text" id="date"><b>Date: </b>${startDate}</p>
+                    <p class="card-text" id="address"><b>Address: </b>${address}</p>
+                    <a href="${linkBMS}" class="btn btn-primary"><button>Register</button></a>
+                    </div>
+                    </div>
+                    </div>`;
+                }
+                eventsSection.innerHTML = eventHTML;
+
+                // console.log(result[Object.keys(result)[0]])
+            });
+
+
+// const url = 'https://eventfulvolodimir-kudriachenkov1.p.rapidapi.com/searchEvents';
+
+    </script>
+</body>
+
+</html>

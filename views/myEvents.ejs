@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Event Organizing Website</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            .card{
+                border: 4px solid #0E185F;
+                background-color: #E8FFC2;
+                margin: 20px;
+                justify-content: center;
+                align-content: center;
+                text-align: center;
+                border-radius: 10px;
+                height: 100%;
+                padding: 1em;
+            }
+    
+            button{
+                background-color: #0E185F;
+                border: 2px solid #0E185F;
+                color: #fff;
+                border-radius: 10px;
+                margin: 2em;
+                font-size: 20px;
+                padding: 10px;
+            }
+    
+            h1{
+                color: #0E185F;
+                text-align: center;
+            }
+    
+            #butn:hover{
+                color: #ff5900;
+            }
+
+            button a:hover{
+                color: #ff5900;
+            }
+        </style>
+    </head>
+    
+<body>
+    <h1> Resonse for your Event </h1>
+    <% for(var i=0; i< data.length; i++) { %>
+
+        <div class="col-4" style="justify-content: center;">
+            <div class="card " style="margin-left: 5em;" >
+
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 24px;">
+                        <%= data[i].name %>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted" style="font-size: 18px;">
+                        <%= data[i].eventname %>
+                    </h6>
+                    <p class="card-text" style="font-size: 14px;">
+                        <%= data[i].response %>
+                    </p>
+                    <p  class="card-text" style="font-size: 24px;">
+                        Cost: <%= data[i].price %>
+                    </p>
+                    <p class="card-link" style="font-size: 18px;">
+                        <%= data[i].email%>
+                    </p>
+                    <button><a onclick="NewTab()" style="text-decoration: none;color: #E8FFC2;" id="butn">
+                        Connect</a>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    <% } %>
+
+    <script>
+        function NewTab() {
+            window.open("https://mail.google.com/mail/u/0/#inbox",
+                    "", "width=800, height=500");
+        }
+    </script>
+</body>
+</html>

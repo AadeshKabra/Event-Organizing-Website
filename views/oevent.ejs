@@ -1,0 +1,329 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Organizing Website</title>
+    <style>
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+          font-family: 'Quicksand', sans-serif;
+    
+        }
+    
+        body {
+          height: 100vh;
+          width: 100%;
+          background-color: #E8FFC2;
+        }
+    
+        .container {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px 100px;
+        }
+    
+        .container:after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          background: url("img/bg.jpg") no-repeat center;
+          background-size: cover;
+          filter: blur(50px);
+          z-index: -1;
+        }
+    
+        .contact-box {
+          max-width: 380px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: #fff;
+          box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+        }
+    
+        .left {
+          background: url("img/bg.jpg") no-repeat center;
+          background-size: cover;
+          height: 100%;
+        }
+    
+        .right {
+          padding: 25px 40px;
+          width: 30em;
+        }
+    
+        h2 {
+          position: relative;
+          padding: 0 0 10px;
+          margin-bottom: 10px;
+        }
+    
+        h2:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          height: 4px;
+          width: 50px;
+          border-radius: 2px;
+          background-color: #0E185F;
+        }
+    
+        .field {
+          width: 100%;
+          border: 2px solid rgba(0, 0, 0, 0);
+          outline: none;
+          background-color: rgba(230, 230, 230, 0.6);
+          padding: 0.5rem 1rem;
+          font-size: 1.1rem;
+          margin-bottom: 22px;
+          transition: .3s;
+        }
+    
+        .field:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+    
+        textarea {
+          min-height: 150px;
+        }
+    
+        .btn {
+          width: 100%;
+          padding: 0.5rem 1rem;
+          background-color: #2ecc71;
+          color: #fff;
+          font-size: 1.1rem;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          transition: .3s;
+        }
+    
+        .btn:hover {
+          background-color: #27ae60;
+        }
+    
+        .field:focus {
+          border: 2px solid rgba(30, 85, 250, 0.47);
+          background-color: #fff;
+        }
+    
+        @media screen and (max-width: 880px) {
+          .contact-box {
+            grid-template-columns: 1fr;
+          }
+    
+          .left {
+            height: 200px;
+          }
+        }
+  
+  
+      </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contact-box">
+    
+          <div class="right">
+            <h2>Respond to Event </h2>
+  
+            <form action="/postoEvent.html" method="post">
+  
+              <input type="text" autocomplete="off" id="username" placeholder="Organizer's Name" style="font-size: large; margin: 1em;padding: 1em;" name="name"/>
+  
+              <input type="email" autocomplete="off" name="email" placeholder="Organizer's Email Address" style="font-size: large; margin: 1em;padding: 1em;" />
+  
+              <input type="tel" autocomplete="off" name="phone" 
+              placeholder="Your Contact no " style="font-size: large; margin: 1em;padding: 1em;" /> 
+  
+              <input type="text" autocomplete="off" name="eventname" 
+              placeholder="Event Name " style="font-size: large; margin: 1em;padding: 1em;" />
+  
+              <input type="text" autocomplete="off" name="info" 
+              placeholder="Organizer's response" style="font-size: large; margin: 1em;padding: 1em;" />
+  
+              <textarea type="text" name="response" placeholder="Organizer's response" width="300" height="25"  style="font-size: large; margin: 1em;padding: 1em;"></textarea>
+
+              <input type="text" autocomplete="off" id="username" placeholder="Expected cost" style="font-size: large; margin: 1em;padding: 1em;" name="price"/>
+  
+              <button type="submit" style="
+              background-color: #0E185F;
+              border: 2px solid #0E185F;
+              color: #E8FFC2;
+              border-radius: 10px;
+              margin: 2em;
+              font-size: 20px;
+              padding: 10px;
+              width: 50%;">Respond</button>
+          
+            </form>
+  
+            
+          </div>
+        </div>
+      </div>
+  
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Organizing Portal</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+      body{
+        /* background-color: #E8FFC2; */
+        background-image: linear-gradient( #ebefe4, #E8FFC2);
+      }
+
+      h2{
+        text-align: center;
+        margin: 10px 10px;
+        font-size: 32px;
+        color: #0E185F;
+      }
+
+      input{
+        display:block;
+        margin: auto;
+        width: 50%;
+        border: 2px solid #0E185F;
+        border-radius: 5px;
+      }
+
+      textarea{
+        border: 2px solid #0E185F;
+        border-radius: 5px;
+      }
+
+      #form{
+        margin-left: 420px;
+      }
+
+      button{
+        margin: 2em;
+        font-size: 20px;
+        padding: 10px;
+        display:block;
+        margin: 20px;
+        width: 50%;
+        cursor: pointer;
+      }
+
+    </style>
+
+</head>
+
+<body>
+<div class="container">  
+
+    <!-- <div class="container"> -->
+      <div class="contact-box">
+  
+        <div class="right">
+          <h2>Post Your Response </h2>
+
+          <form action="/postoEvent.html" method="post" id="form">
+
+            <input type="text" autocomplete="off" id="username" placeholder="Organizer's Name" style="font-size: large; margin: 1em;padding: 1em;" name="name"/>
+
+            <input type="email" autocomplete="off" name="email" placeholder="Organizer's Email Address" style="font-size: large; margin: 1em;padding: 1em;" />
+
+            <input type="tel" autocomplete="off" name="phone" 
+            placeholder="Organizer's Contact no " style="font-size: large; margin: 1em;padding: 1em;" />
+
+            <input type="text" autocomplete="off" name="eventname" 
+            placeholder="Event Name " style="font-size: large; margin: 1em;padding: 1em;" />
+
+            <textarea type="text" name="response" placeholder="Response for event: " width="300" height="25"  style="font-size: large; margin: 1em;padding: 1em;" rows="10" cols="49"></textarea>
+
+            <input type="text" autocomplete="off" id="username" placeholder="Expected cost" style="font-size: large; margin: 1em;padding: 1em;" name="price"/>
+
+            <button type="submit" style="
+            background-color: #0E185F;
+            border: 2px solid #0E185F;
+            color: #E8FFC2;
+            border-radius: 10px;">Respond</button>
+        
+          </form>
+
+          
+        </div>
+      </div>
+    <!-- </div> -->
+
+  </div>
+
+
+   <!-- footer -->
+   <div class="footer">
+    <div class="inner-footer">
+  
+  <!--  for company name and description -->
+      <div class="footer-items">
+        <h1>Event Organizing</h1>
+        <p>Always at your service</p>
+      </div>
+  
+  <!--  for quick links  -->
+      <div class="footer-items">
+        <h3>Quick Links</h3>
+        <div class="border1"></div> <!--for the underline -->
+          <ul>
+            <a href="/home"><li>Home</li></a>
+            <a href="#"><li>Trending Events</li></a>
+            <a href="/about"><li>About Us</li></a>
+          </ul>
+      </div>
+  
+
+  
+  <!--  for contact us info -->
+      <div class="footer-items">
+        <h3>Contact us</h3>
+        <div class="border1"></div>
+          <ul>
+
+            <a class="fa fa-map-marker" aria-hidden="true" ><li>XYZ, abc</li></a>
+            <a class="fa fa-phone" aria-hidden="true"><li>123456789</li></a>
+            <a class="fa fa-envelope" aria-hidden="true"><li>xyz@gmail.com</li></a>
+          </ul> 
+        
+  <!--   for social links -->
+          <div class="social-media">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-google-plus-square"></i></a>
+          </div> 
+      </div>
+    </div>
+    
+</body>
+</html>
+
